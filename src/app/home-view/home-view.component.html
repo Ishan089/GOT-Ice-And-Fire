@@ -1,0 +1,67 @@
+<!--Single Book View-->
+<div class="container">
+    <div class="row text-center" *ngIf="currentBook">
+        <a [routerLink]="['/home']" class="btn btn-outline-dark" role="button" aria-pressed="true">Back</a>
+      <div class="col-md-12" *ngFor="let bookDetails of currentBook">
+
+        <h2>{{ bookDetails.name }}</h2> <br><br>
+        
+        <div class="border"></div>
+        {{bookDetails.url}}
+        <div class="border"></div>
+        <p *ngIf="bookDetails.authors.length>1">
+            AUTHOR(S) : {{ bookDetails.authors }}
+            <span *ngFor="let author of bookDetails.authors;let first=first;let last=last">{{ author }}{{ last ? '' : ', ' }}</span>
+        </p>
+        <div class="border"></div>
+
+        
+        <p>
+          ISBN : {{ bookDetails.isbn }}
+        </p>
+        <div class="border"></div>
+
+        <p>Number of Pages : {{bookDetails.numberOfPages}}</p>
+        <div class="border"></div>
+        
+        <p>
+            RELEASED : {{ bookDetails.released }}
+        </p>
+        <div class="border"></div>
+        
+        <p>
+            PUBLISHER : {{ bookDetails.publisher }}
+        </p>
+        <div class="border"></div>
+        
+        <p>
+                mediaType : {{ bookDetails.mediaType }}
+        </p>
+        <div class="border"></div>
+        
+        <p>
+            COUNTRY : {{ bookDetails.country }}
+        </p>
+        <div class="border"></div>
+
+        <p>
+          FORMAT : {{ bookDetails.mediaType }}
+        </p>
+        <div class="border"></div>
+        
+        <p *ngIf="bookDetails.characters.length>1">
+          <b> URL :</b>  
+          <span *ngFor="let character of bookDetails.characters;let first=first;let last=last">{{ character }}{{ last ? '' : ', ' }}</span>
+        </p>
+        <div class="border"></div>
+        
+        <p *ngIf="bookDetails.povCharacters.length>1">
+           <b> POV CHARACTERS URL :</b>  
+            <span *ngFor="let povCharacter of bookDetails.povCharacters;let first=first;let last=last">{{ povCharacter }}{{ last ? '' : ', ' }}</span>
+        </p>
+        <div class="border"></div>
+
+        </div>
+  
+    </div>
+  </div>

@@ -1,0 +1,24 @@
+<!--Single Book View-->
+<div class="container">
+  <div class="row text-center" *ngIf="currentChar">
+    <div class="col-md-12" *ngFor="let charDetails of currentChar">
+        <h1>{{charDetails.name}}</h1>
+
+      <p>{{charDetails.url}}</p>
+        <p>{{charDetails.culture}}</p>
+          <p>{{charDetails.born}}</p>
+          <p>{{charDetails.died}}</p>
+      <h2>{{ charDetails.aliases }}</h2> <br><br>
+      <p>{{charDetails.url}}</p>
+      <p>{{charDetails.gender}}</p>
+      
+      <p *ngIf="charDetails.books.length>1">
+      {{charDetails.books}}
+      <span *ngFor="let books of charDetails.books;let first=first;let last=last">{{ books }}{{ last ? '' : ', ' }}</span>
+    </p>
+
+    
+      </div>
+
+  </div>
+</div>

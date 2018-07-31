@@ -1,0 +1,40 @@
+<input class="form-control" placeholder="Search your Favourite Character Here," type="text" name="search" [(ngModel)]="filter">
+
+<div class="container" style="text-align:center">
+  <div class="row" style="text-align:center">
+    <br>
+    <br>
+    <p style="font-size:22px; overflow: visible;">Characters </p>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+  <br>
+  <div class="row" style="text-align:center" *ngIf="allChar.length>0">
+    <div *ngFor="let char of allChar | filter:filter" class="col-md-4">
+
+      <div class="panel panel-blue">
+        <div class="panel-heading">Gender: {{char.gender | uppercase}}</div>
+        <div class="panel-body">
+
+          <p>{{char.aliases}}</p>
+        </div>
+        <div class="panel-footer">
+          <br>
+          <a [routerLink]="['/char',char.name]" class="btn btn-primary">Read</a>
+
+
+          <br/>
+          <br/>
+
+
+        </div>
+
+      </div>
+
+      <br/>
+    </div>
+
+  </div>
+</div>

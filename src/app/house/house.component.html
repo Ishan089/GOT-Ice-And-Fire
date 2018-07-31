@@ -1,0 +1,41 @@
+<div class="container">
+  <input class="form-control" placeholder="Search For Your Favourite Houses" type="text" name="search" [(ngModel)]="filter">
+
+  <h1 style="font-size:22px">Houses </h1>
+  <br>
+  <br>
+  <br>
+
+  <br>
+  <img class="house" src="../../assets/Images/houses1.jpg" alt="Card image cap">
+  <br>
+  <br>
+  <div class="row" style="text-align:center" *ngIf="allHouses.length>0">
+
+
+    <div *ngFor="let house of allHouses | filter:filter" class="col-md-6">
+
+      <div class="panel panel-green">
+        <div class="panel-heading">Name: {{house.name | uppercase}}</div>
+        <div class="panel-body">
+
+          <p>{{house.region}}</p>
+        </div>
+        <div class="panel-footer">
+          <br>
+          <a [routerLink]="['/house',house.name]" class="btn btn-primary">Read</a>
+
+
+          <br/>
+          <br/>
+
+
+        </div>
+
+      </div>
+
+      <br/>
+    </div>
+
+  </div>
+</div>
